@@ -1,6 +1,6 @@
 ' ==============================================================================
 ' NAME        : Windows Services Backup Script
-' DESCRIPTION : This script backs up the Windows Services startup configuration'
+' DESCRIPTION : This script backs up the Windows Services startup configuration
 '               to Batch & REG files.
 ' OS SUPPORT  : Windows 10/11, Windows Server 2016
 ' AUTHOR      : Ramesh Srinivasan
@@ -25,10 +25,10 @@ Else
    Set objFile = objFSO.GetFile(WScript.ScriptFullName)
 
    'Set files names for REG and Batch files
-   sNow = Year(Date) & "-" & Right("0" & Month(Date), 2) & "-" & Right("0" & Day(Date), 2)
+   sNow     = Year(Date) & "-" & Right("0" & Month(Date), 2) & "-" & Right("0" & Day(Date), 2)
    sREGFile = objFSO.GetParentFolderName(objFile) & "\svc_curr_state_" & sNow & ".reg"
    sBATFile = objFSO.GetParentFolderName(objFile) & "\svc_curr_state_" & sNow & ".bat"
-   sSvcKey = "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\"
+   sSvcKey  = "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\"
 
    Set r = objFSO.CreateTextFile (sREGFile, True)
    r.WriteLine "Windows Registry Editor Version 5.00"
